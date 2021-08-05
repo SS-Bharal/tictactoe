@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Square = () => {
+const Square = ({value}) => {
     return (
-        <div>
-            <button>1</button>
+        <>
+            <button>{value}</button>
+        </>
 
-        </div>
     )
 }
 
