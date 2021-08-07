@@ -6,9 +6,23 @@ import Square from './Square';
 
 const Board = () => {
   const [board, setBoard] = useState(Array(9).fill(null));
-  console.log(board);
+  const [isXNext,setIsXNext] = useState(false);
+  const handleSquareClick = (position) => {
 
-  const handleSquareClick = () => { }
+    if(board[position]){
+      return;
+    }
+    setBoard(prev => {
+      return prev.map((Square, pos) => {
+          if(pos == position){
+            return isXNext? "X" : "0";
+          }
+
+          return Square;
+      });
+    });
+    setIsXNext((prev)=>!prev);
+  };
 
   const renderSquare = (position) => {
     return (
